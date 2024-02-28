@@ -1,9 +1,13 @@
 import { styled } from "styled-components";
 import useTodoDetail from "./useTodoDetail";
 import ActionButton from "../../components/common/ActionButton";
+import { useParams } from "react-router-dom";
 
-const TodoDetail = () => {
-  const { todo, handleButtonClick } = useTodoDetail();
+export default function TodoDetail() {
+  const { todos, handleButtonClick } = useTodoDetail();
+
+  const currentId = useParams().id;
+  const todo = todos.filter(({ id }) => id === currentId)[0];
 
   return (
     <Container>
@@ -22,7 +26,7 @@ const TodoDetail = () => {
       </Paragraph>
     </Container>
   );
-};
+}
 
 const Container = styled.div`
   width: 600px;
@@ -55,5 +59,3 @@ const Title = styled.p`
 const Paragraph = styled.p`
   color: ${({ $isCompleted }) => ($isCompleted ? "blue" : "red")};
 `;
-
-export default TodoDetail;
