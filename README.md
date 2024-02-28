@@ -1,6 +1,7 @@
 # To Do List
 
 항해99 리액트 2차 과제
+[배포링크](https://vjiji.github.io/todo-app/)
 
 ## 컴포넌트 구조
 
