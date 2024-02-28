@@ -1,23 +1,26 @@
 import styled from "styled-components";
 import TodoCard from "../TodoCard";
-import { useRenderTodos } from "./useRenderTodos";
+import useRenderTodos from "./useRenderTodos";
 
-const RenderTodos = ({ isCompleted }) => {
+export default function RenderTodos({ isCompleted }) {
   const {
-    title,
     todos,
     handleUpdateTodoButtonClick,
     handleDeleteTodoButtonClick,
     handleCardDetailButtonClick,
-  } = useRenderTodos({
-    isCompleted,
-  });
+  } = useRenderTodos();
+
+  const title = isCompleted ? "Done" : "Working";
+
+  const filteredTodos = todos.filter(({ completed }) =>
+    isCompleted ? completed : !completed
+  );
 
   return (
     <Container $isCompleted={isCompleted}>
       <p>{title}</p>
       <CardBox>
-        {todos.map((todo) => (
+        {filteredTodos.map((todo) => (
           <TodoCard
             key={todo.title + todo.id}
             todo={todo}
@@ -29,9 +32,7 @@ const RenderTodos = ({ isCompleted }) => {
       </CardBox>
     </Container>
   );
-};
-
-export default RenderTodos;
+}
 
 const Container = styled.div`
   min-height: 190px;
