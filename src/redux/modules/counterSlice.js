@@ -6,9 +6,9 @@ const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
-    //
+    addId: (state) => state + 1,
   },
 });
 
-export const {} = counterSlice.actions;
+export const { addId } = counterSlice.actions;
 export default counterSlice.reducer;
