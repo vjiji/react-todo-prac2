@@ -7,7 +7,7 @@ import { addId } from "../../../../redux/modules/counterSlice";
 export const useAddTodo = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const { counter } = useSelector((state) => state);
+  const counter = useSelector((state) => state.counter);
   const dispatch = useDispatch();
 
   const handleAddTodoButtonClick = () => {

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { deleteTodos, updateTodos } from "../../../../redux/modules/todosSlice";
 
 export default function useRenderTodos() {
-  const { todos } = useSelector((state) => state);
+  const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
