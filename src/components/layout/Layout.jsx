@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux";
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
 import { styled } from "styled-components";
 
 const Layout = () => {
+  const test = useSelector((state) => state);
+  console.log(test);
   return (
     <Container>
       <Header />
