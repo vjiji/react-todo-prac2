@@ -6,8 +6,8 @@ const Home = () => {
     <>
       <AddTodo />
       <hr />
-      {/* <RenderTodos />
-      <RenderTodos isCompleted /> */}
+      <RenderTodos />
+      <RenderTodos isCompleted />
     </>
   );
 };

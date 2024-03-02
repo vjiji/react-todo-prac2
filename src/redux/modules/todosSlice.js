@@ -6,13 +6,21 @@ const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    //
     addTodos: (state, action) => {
-      console.log(action, "addTodos action");
       return [...state, action.payload];
+    },
+    updateTodos: (state, action) => {
+      return [
+        ...state.map((todo) =>
+          todo.id === action.payload.id ? action.payload : todo
+        ),
+      ];
+    },
+    deleteTodos: (state, action) => {
+      return state.filter(({ id }) => id !== action.payload);
     },
   },
 });
 
-export const { addTodos } = todosSlice.actions;
+export const { addTodos, updateTodos, deleteTodos } = todosSlice.actions;
 export default todosSlice.reducer;
