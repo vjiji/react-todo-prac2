@@ -1,12 +1,9 @@
-import { createStore } from "redux";
-import { combineReducers } from "redux";
-import counter from "../modules/counter";
-import todos from "../modules/todos";
+import { configureStore } from "@reduxjs/toolkit";
+import counter from "../modules/counterSlice";
+import todos from "../modules/todosSlice";
 
-const rootReducer = combineReducers({
-  counter: counter,
-  todos: todos,
+const store = configureStore({
+  reducer: { counter: counter, todos: todos },
 });
-const store = createStore(rootReducer);
 
 export default store;
